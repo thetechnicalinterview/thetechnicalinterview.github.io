@@ -1,0 +1,10 @@
+<span class="intro-full">All the practice questions you need to prepare for your next technical interview.
+    Whether you're practicing CSS questions on the bus, or getting in some
+    last-minute JavaScript practice questions outside the interview room, this site is here to help.</span>
+<span class="intro">Please select a topic to get started...</span>
+
+<ul class="topics">
+    <li ng-repeat="topic in topics" class="topic-listing">
+        <a href="#/questions/{{topic.id}}">{{topic.label}}</a>
+    </li>
+</ul>

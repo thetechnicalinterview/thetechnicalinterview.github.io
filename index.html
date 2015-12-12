@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="theTechnicalInterviewApp">
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>the Technical Interview</title>
+
+    <link type="text/css" href="css/tti.min.css" rel="stylesheet" />
+
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/tti.min.js"></script>
+</head>
+    <body>
+        <header>
+            <section class="logo">
+                <a href="#/">
+                    <span class="logo-large">the<span class="bold">TechnicalInterview</span>.com</span></span>
+                    <span class="logo-small">t<span class="bold">TI</span></span></span>
+                </a>
+            </section>
+        </header>
+        <section class="main">
+            <div ng-view class="view-frame" ng-hide="showContact"></div>
+            <section class="get-in-touch" ng-show="showContact">
+                <p>Got a suggestion for a new topic you'd like to see added? Have we helped you pass a technical interview
+                    and you want to share your success? Whatever you've got to say, get in touch in one of these ways:</p>
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/theTechIntrview" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @theTechIntrview</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/thetechnicalinterview" target="_newtab" class="facebook-logo"></a>
+                    </li>
+                    <li>
+                        <a class="email-link" href="mailto:thetechnicalinterview@gmail.com">Email us<span> at thetechnicalinterview@gmail.com</span></a>
+                    </li>
+                </ul>
+                <a class="play" ng-click="showContact=false">Close</a>
+            </section>
+        </section>
+        <footer>
+            <section class="contact">
+                <a ng-click="showContact=!showContact" class="contact-us">Contact Us</a>
+            </section>
+        </footer>
+    </body>
+</html>

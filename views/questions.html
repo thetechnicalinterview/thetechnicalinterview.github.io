@@ -1,0 +1,67 @@
+<section class="questions" ng-controller="QuestionsCtrl as questionsCtrl">
+    <section class="settings" ng-hide="questionsReady">
+        <p>Topic selected: {{topic}}</p>
+        <p>I've got time for...</p>
+        <div class="options">
+            <div class="option">
+                <label>
+                    <input type="radio" ng-model="numQuestions" ng-value="5" />
+                    <span class="custom-radio"></span>
+                    5 Questions
+                </label>
+            </div>
+            <div class="option">
+                <label>
+                    <input type="radio" ng-model="numQuestions" ng-value="10" />
+                    <span class="custom-radio"></span>
+                    10 Questions
+                </label>
+            </div>
+            <div class="option">
+                <label>
+                    <input type="radio" ng-model="numQuestions" ng-value="15" />
+                    <span class="custom-radio"></span>
+                    15 Questions
+                </label>
+            </div>
+        </div>
+        <a class="play" ng-click="questionsCtrl.start()">Play</a>
+    </section>
+    <div class="topic-setup" ng-hide="!questionsReady || allQuestionsAsked">
+        <div class="topic-detail">
+            <span class="topic-label">Topic:</span>
+            <span class="topic">{{topic}}</span>
+        </div>
+        <div class="question-count">
+            <span class="counter-label">Question</span>
+            <span class="counter">{{questionsAsked.length}} / {{numQuestions}}</span>
+        </div>
+    </div>
+    <section class="question" ng-hide="!questionsReady || allQuestionsAsked">
+        <p class="question-text">{{question.question}}</p>
+        <div class="answers" ng-hide="question.correct || question.incorrect">
+            <a class="answer" ng-click="questionsCtrl.submitAnswer('a')"><span>{{question.a}}</span></a>
+            <a class="answer" ng-click="questionsCtrl.submitAnswer('b')"><span>{{question.b}}</span></a>
+        </div>
+        <div class="correct" ng-show="question.correct">
+            <div class="content">
+                <p class="bold">Correct!</p>
+                <a class="continue" ng-click="questionsCtrl.nextQuestion()">Continue</a>
+            </div>
+        </div>
+        <div class="incorrect" ng-show="question.incorrect">
+            <div class="content">
+                <p class="bold">Incorrect!</p>
+                <p>The correct answer was:</p>
+                <p>{{question[question.answer]}}</p>
+                <a class="continue" ng-click="questionsCtrl.nextQuestion()">Continue</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary" ng-show="allQuestionsAsked">
+        <p>{{topic}} Questions Finished!</p>
+        <p>{{summary}}</p>
+        <a class="play" href="#/">Play Again</a>
+    </section>
+</section>
